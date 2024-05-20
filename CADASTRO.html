@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--FONTS-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   <!--FONTS-->
+    <link rel="stylesheet" href="LOGINCADASTRO.css">
+    <title>CADASTRO TZARTS</title>
+
+</head>
+
+<body>
+
+    <div id="login">
+
+        <div class="caixa">
+            
+            <img src="img/LOGO3.jpeg" alt="">
+            <h1>CADASTRO</h1>
+
+            <span id="mensagemErro"></span>
+
+            <div class="name">
+                <input id="input_nome" placeholder="Nome">
+            </div>
+
+            <div class="email">
+                <input id="input_email" placeholder="E-mail">
+            </div>
+
+            <div class="senha">
+                <input id="input_senha" type="password" placeholder="Senha">
+            </div>
+
+            <div class="senha">
+                <input id="input_confirme_senha" type="password" placeholder="Confirme a sua senha">
+            </div>
+
+            <div class="entrar">
+                <p>Já tem uma conta? <a href="LOGIN.html">Entre aqui.</a></p>
+                <button onclick="cadastrar()">Cadastrar</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+      mensagemErro.innerHTML = "";
+      let nome = input_nome.value;
+      let email = input_email.value;
+      let senha = input_senha.value;
+      let confirmacaoSenha = input_confirme_senha.value;
+      
+  
+  
+  
+  
+  
+      // Variáveis para condição.
+      let valoresVazios = nome == "" || email == "" || senha == "" || confirmacaoSenha == "";
+      let nomeMinimo = nome.length < 1;
+      let contemArrobaPonto = email.indexOf("@gmail.com") > -1 || email.indexOf("@hotmail.com") > -1 || email.indexOf("@outlook.com") > -1;
+      let senhaCaracteresMinimos = senha.length < 8;
+      let senhaContemNumero = false;
+  
+      // Laço de Repetição para verificação de números na senha.
+      for (
+          let contadorNumero = 0;
+          contadorNumero < senha.length;
+          contadorNumero++
+      ) {
+          for (let contadorIndex = 0; contadorIndex < 9; contadorIndex++) {
+              if (senha.indexOf(contadorIndex) != -1) {
+                  senhaContemNumero = true;
+              }
+          }
+      }
+  
+  
+  
+      if (valoresVazios) {
+          // Teste de valores vazios
+          mensagemErro.innerHTML = "Todos os campos precisam estar preenchidos.";
+      } else if (nomeMinimo) {
+          // Teste de nome com pelo menos um caractere.
+          mensagemErro.innerHTML = "Nome inválido.";
+      } else if (contemArrobaPonto == false) {
+          // Teste de @ e . no Email
+          mensagemErro.innerHTML = "E-Mail inválido.";
+      } else if (senhaCaracteresMinimos) {
+          // Teste de Tamanho mínimo da Senha
+          mensagemErro.innerHTML = "Senha inválida.";
+      } else if (confirmacaoSenha != senha) {
+          // Teste de confirmação Senha = Senha
+          mensagemErro.innerHTML = "Senhas não coincidem.";
+      } else if (senhaContemNumero == false) {
+          // Teste de conter número na senha 
+          mensagemErro.innerHTML = "Erro. Senha não contém número.";
+      } else {
+        alert("Usuário Cadastrado!")
+          window.location.href = "LOGIN.html"
+  
+          // Falta redirecionamento para tela de login.
+      }
+  }
+  </script>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineVerse</title>
+    <script src="../js/sessao.js"></script>
+</head>
+<style>
+    @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+    @import url('https://fonts.cdnfonts.com/css/minercraftory');
+
+    body {
+        background-image: url(../assets/imgs/fundoQuiz.jpg);
+        background-size: cover;
+    }
+
+    .fundo-desfocado {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        backdrop-filter: blur(5px);
+        /* Aplica um desfoque de 10 pixels */
+        z-index: -1;
+        /* Coloca o elemento atrás do conteúdo */
+    }
+
+    .container {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        width: 300px;
+        height: 45px;
+        border: 2px solid black;
+        background-color: rgb(126, 123, 123);
+        margin-bottom: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        color: white;
+        font-weight: bold;
+        background-color: rgb(79, 79, 79);
+    }
+
+    .steve {
+
+        position: absolute;
+        top: 300px;
+        left: 1200px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .nameUser {
+        background-color: rgba(240, 248, 255, 0.274);
+        color: white;
+        font-family: Verdana, sans-serif;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .sair button {
+        margin: 5px;
+        width: 100px;
+        position: relative;
+        top: 615px;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .mensagem-escondido {
+        background-color: rgba(50, 53, 56, 0.951);
+        width: 30%;
+        height: 43%;
+        position: absolute;
+        top: 160px;
+        left: 520px;
+        text-align: center;
+        border-radius: 20px;
+        display: none;
+
+    }
+
+    h1 {
+        color: rgb(117, 196, 38);
+        margin-bottom: 30px;
+        font-family: 'Minecraft', sans-serif;
+        font-size: 34px;
+    }
+
+    .mensagem-escondido {
+        color: rgb(254, 255, 254);
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    h3 {
+        color: rgb(117, 196, 38);
+        margin-bottom: 30px;
+        font-family: 'Minecraft', sans-serif;
+        font-size: 34px;
+    }
+</style>
+<!-- onload="validarSessao()" -->
+
+<body onload="carregarNome">
+    <div class="fundo-desfocado"></div>
+    <div id="mensagem-jogo" class="mensagem-escondido">
+        <h1>Importante !</h1>
+        <p>
+            <span id="resultadosObtidos">
+                Quantidade de questões: <b>10</b>
+                <br>
+                Duração máxima permitida: <b>10 minutos</b>
+                <br>
+                Tentativas permitidas: <b>1</b>
+                <br>
+                Obs: cada questão vale <b>3 pontos</b>
+            </span>
+        <h3>Boa sorte!</h3>
+        </p>
+    </div>
+    
+
+    <div class="sair"><button onclick="window.open('../index.html', '_self')">Sair</button></div>
+    <div class="container">
+        <div class="title"><img style="width: 550px; margin-bottom: 50px;" src="../assets/imgs/title.png" alt=""></div>
+
+        <button id="botao-jogar">Jogar</button>
+        <button>Conta</button>
+        <button>Ajuda</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function carregarNome() {
+        var nome = sessionStorage.NOME_USUARIO2;
+        console.log('Nome:', nome)
+        b_usuario.innerHTML = `${nome}`
+    }
+    const mensagemJogo = document.getElementById('mensagem-jogo');
+    const botaoJogar = document.getElementById('botao-jogar');
+
+    function mostrarMensagem() {
+        mensagemJogo.style.display = 'block';
+    }
+
+    function ocultarMensagem() {
+        mensagemJogo.style.display = 'none';
+    }
+
+    botaoJogar.addEventListener('click', () => {
+        mostrarMensagem();
+
+        setTimeout(() => {
+            ocultarMensagem();
+            window.location.href = 'quiz.html';
+        }, 10000);
+    });
+
+    function verificarSexo() {
+        
+       
+        if (sessionStorage.SEXO_USUARIO == 'masculino') {
+
+        } else {
+
+        }
+    }
+
+
+</script>

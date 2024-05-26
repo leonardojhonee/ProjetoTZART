@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* outline: none;
+    border: none;
+    text-decoration: none; */
+}
+
+body {overflow: hidden;
+
+    background-color: #25272c;
+    /* body {
+        background: #dfe9f5;
+    } */
+    color: #fff;
+}
+
+.navigation {
+    margin-bottom: 50px;
+    position: relative;
+    height: 695px;
+    background-color: #2b2f33;
+    /* box-shadow: 10px 0 0 #099c22; */
+    width: 220px;
+    overflow: hidden;
+}
+
+
+.navigation ul {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation ul li {
+    list-style: none;
+}
+
+.navigation ul li a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    align-items: center;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.navigation ul li a .icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.navigation ul li a:hover {
+    background-color: #099c22;
+}
+
+.navigation ul li a:hover .title {
+    font-weight: bold;
+}
+
+/*seção destinada para as tags no menu lataral*/
+.sectionsMenus {
+    display: flex;
+    max-height: 695px;
+}
+
+/*seção para conter as divs dos menus*/
+.containerRef {
+    margin-top: 60px;
+    margin-left: 30px;
+    width: 1230px;
+    height: 695px;
+
+}
+
+.perfil {
+    width: 1230px;
+    height: 695px;
+    background-color: rgb(168, 110, 41);
+}
+
+.dashboard {
+    width: 1230px;
+    height: 695px;
+    background-color: rgb(62, 41, 168);
+}
+
+/*Aqui começa a dash*/
+
+.container {
+    margin-right: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.titleDash {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cardKPIs {
+
+    border-radius: 5px;
+    position: relative;
+    width: 22%;
+    height: 125px;
+    margin: 10px;
+    background-color: #423f47;
+
+    /* border-radius: 20px; */
+    padding: 10px;
+
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.cardKPIs h1 {
+    margin-left: 3px;
+    color: #0aad25;
+    font-size: 18px;
+}
+
+.cardKPIs p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 42px;
+}
+
+.containerChartJs {
+   
+
+    width: 100%;
+    height: 400px;
+ 
+    margin-top: 40px;
+
+   
+    
+
+}
+
+.containerChartJs h2 {
+    text-align: center;
+    padding: 3px;
+    margin-bottom: 3px;
+    color: #099c22;
+}
+
+.containerChartJs .divGraficos {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.graficoPizza {
+    
+    position: absolute;
+    padding: 8px;
+    width: 350px;
+    height: 400px;
+    top: -20px;
+    margin-top: 20px;
+    margin-left: 940px;
+    border-radius: 10px;
+
+}
+
+#desacertos {
+    display: none;
+}
+
+#aproveitamento {
+    display: none;
+}
+
+#totalPontos {
+    display: none;
+}
+.nameGrafico{
+    position: absolute; left: 1080px; width:400px;height: 270px; padding: 20px; top: 30px; color: rgb(255, 255, 255); border-radius: 10px; background-color: #35393e;  color: rgb(20, 221, 87);
+}
+
+/*ranking */
+.tabela {
+    
+    width: 1250px;
+    border-collapse: collapse;
+    
+    /* background-color: #212529; */
+   
+    color: #fff; /
+  }
+  
+  
+  .cabecalho {
+    background-color: #303f49; 
+    display: flex;
+    font-weight: bold;
+    
+  }
+  
+  .cabecalho-item {
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #424242;
+    text-align: center;
+  }
+  
+  .corpo {
+    padding: 10px;
+  }
+  
+  .linha {
+    display: flex;
+    border-bottom: 1px solid #424242;
+  }
+  
+  .item {
+    margin: 0;
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #424242;
+    text-align: center;
+  }
+  
+  .item:last-child {
+    border-right: none;
+  }
+  
+  .linha:hover {
+    background-color: #353b45;
+  }
+  .corpo-scroll {
+    max-height: 400px;
+    overflow-x: auto; 
+    overflow-y: scroll;
+  }

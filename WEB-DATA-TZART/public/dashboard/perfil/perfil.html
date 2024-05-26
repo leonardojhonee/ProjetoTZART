@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historico</title>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+
+<body onload="exibirRespostas() ">
+    <section class="sectionsMenus">
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home"></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="./perfil.html" onclick="ativarPerfil()">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <span class="title">Perfil</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="../dashboard.html" onclick="ativarDashboard()">
+                        <span class="icon"><ion-icon name="analytics"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
+                        <span class="title">Anotações</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                        <span class="title">Ajuda</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list" style="margin-top: 170px;">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section class="section_historico">
+
+
+            <span id="exibirRespostas" class="card1">
+                <h1>Confira a baixo sua ultima participação no quiz</h1>
+            </span>
+
+            <h3>1 - </h3>
+            <h3>2 - </h3>
+            <h3>3 - </h3>
+            <h3>4 - </h3>
+            <h3>5 - </h3>
+            <h3></h3>
+            <h3></h3>
+            <h3></h3>
+            <h3></h3>
+            <h3></h3>
+            <span id="exibirRespostas2" class="card2">
+
+            </span>
+        </section>
+
+
+</body>
+
+</html>
+
+<script>
+    // historico()
+    setInterval(historico, 30000);
+
+    console.log('Questoões respondidas', sessionStorage.QUESTOES_RESPONDIDAS)
+    let respostaUser = [sessionStorage.QUESTOES_RESPONDIDAS[0],]
+
+    console.log(respostaUser)
+    let respostasCorretas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    function exibirRespostas() {
+
+
+        for (let contador = 0; contador < sessionStorage.QUESTOES_RESPONDIDAS.length; contador += 1) {
+            const exibir = document.getElementById('exibirRespostas')
+            const exibir2 = document.getElementById('exibirRespostas2')
+            const respostaUser = sessionStorage.QUESTOES_RESPONDIDAS[contador]
+            const respostasCertas = respostasCorretas[contador]
+
+            exibir.innerHTML += `
+            Questão ${contador + 1} <br> 
+            Resposta informada: ${respostaUser}<br>
+            Resposta Correta: ${respostasCertas} <br><br>`
+
+
+            if (contador >= 7 && contador <= 9) {
+                const respostasCertas = respostasCorretas[contador]
+                exibir2.innerHTML += `
+            Questão ${contador + 1} <br> 
+            Resposta informada: ${respostaUser}<br>
+            Resposta Correta: ${respostasCertas} <br><br>`
+            }
+            if (contador > 9) {
+                break
+            }
+        }
+        console.log(resposta1)
+
+    } sessionStorage.EMAIL_USUARIO2
+
+    function historico() {
+        fetch("/medidas/historico", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: sessionStorage.EMAIL_USUARIO2,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO historico)!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.NOME_USUARIO2 = resposta.nome;
+                    // sessionStorage.EMAIL_USUARIO2
+                    
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar pegar as respostas");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

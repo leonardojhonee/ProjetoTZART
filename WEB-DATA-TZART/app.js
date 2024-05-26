@@ -15,35 +15,22 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
-var indexRouter = require("./src/routes/index");
+
 var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
-// var medidasRouter = require("./src/routes/medidas");
-// var aquariosRouter = require("./src/routes/aquarios");
-var empresasRouter = require("./src/routes/empresas");
-var leituraRouter = require("./src/routes/leitura");
-var estufasRouter = require("./src/routes/estufas"); // Rota para estufas
+var quizRouter = require("./src/routes/quiz");
+var medidasRouter = require("./src/routes/medidas")
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// Serve o arquivo CTA.html ao acessar a raiz do servidor
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/TZARTS.html"));
-  });
-
-  app.use(express.static(path.join(__dirname, "public",)));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
-app.use("/", indexRouter);
+
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-// app.use("/medidas", medidasRouter);
-// app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
-app.use("/leitura", leituraRouter);
-app.use("/estufas", estufasRouter);
+app.use("/quiz", quizRouter);
+app.use("/medidas", medidasRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

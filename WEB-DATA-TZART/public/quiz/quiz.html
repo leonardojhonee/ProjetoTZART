@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../css/quiz.css">
+    <script src="quiz.js"></script>
+    <!-- <script src="./dashboard/dashboard.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="errou" id="errou">
+        <img src="../assets/imgs/cruz.png" alt="">
+    </div>
+    <div class="acertou" id="acertou">{
+        <img src="../assets/imgs/verificar.png" alt="">
+    }
+
+    </div>
+    <div  class="exibir" id="exibir">
+        Erro: Por favor, selecione uma alternativa antes de prosseguir.
+    </div>
+
+    <nav>
+        <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="../assets/imgs/title.png" alt=""></span>
+
+    </nav>
+
+    <div id="imgAcertoErro" class="imgAcertoErro">
+        <span id="exibirImagem">
+           
+        </span>
+    </div>
+    <div id="cronometro">
+        <p id="timer">10:00</p>
+      </div>
+      <div id="acabouTempo" class="acabouTempo" style="width: 100%; height: 600px;   z-index: 1000; display: none; color: rgb(255, 0, 0); font-size: 80px; text-align: center; font-weight: bold;">
+            <h1>Tempo Esgotado !!!</h1>
+      </div>
+    <section id="section_quiz" style="display: block;">
+        <div class="quiz-container">
+            <div class="div-quiz">
+                <p>1. Quem criou o Minecraft?</p>
+
+                <input type="radio" id="opcao1a" name="resposta1" value="1">
+                <label for="opcao1a">Markus Persson</label>
+
+                <input type="radio" id="opcao1b" name="resposta1" value="0">
+                <label for="opcao1b">Linus Torvalds</label>
+
+                <input type="radio" id="opcao1c" name="resposta1" value="0">
+                <label for="opcao1c">Rasmus Lerdorf</label><br>
+
+                <button style="margin-left: 420px;" onclick="proximaPergunta(2)">
+                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="" >
+
+                </button>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+                <p>2. Qual era o nome original do Minecraft?</p>
+
+                <input type="radio" id="opcao2a" name="resposta2" value="1">
+                <label for="opcao2a">Cave Game</label><br>
+
+                <input type="radio" id="opcao2b" name="resposta2" value="0">
+                <label for="opcao2b">Brickcraft</label><br>
+
+                <input type="radio" id="opcao2c" name="resposta2" value="0">
+                <label for="opcao2c">MineBlocks</label><br>
+
+                <!-- <span style="display: flex; justify-content: space-between;">
+                    <button onclick="perguntaAnterior(2)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(3)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+
+            <div class="div-quiz" style="display: none;">
+                <p>3. Quais são as três dimensões do jogo?</p>
+
+                <input type="radio" id="opcao3a" name="resposta3" value="1">
+                <label for="opcao3a">The End, The Nether, Overworld</label><br>
+
+                <input type="radio" id="opcao3b" name="resposta3" value="0">
+                <label for="opcao3b">Aether, Overworld, Nether</label><br>
+
+                <input type="radio" id="opcao3c" name="resposta3" value="0">
+                <label for="opcao3c">The Void, The Nether, Overworld</label><br>
+
+                <!-- <span style="display: flex; justify-content: space-between;">
+                    <button onclick="perguntaAnterior(2)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(4)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+                <p>4. Qual a criatura mais hostil de Minecraft?</p>
+
+                <input type="radio" id="opcao4b" name="resposta4" value="0">
+                <label for="opcao4b">Enderdragon</label><br>
+
+                <input type="radio" id="opcao4c" name="resposta4" value="0">
+                <label for="opcao4c">Herobrine</label><br>
+
+                <input type="radio" id="opcao4a" name="resposta4" value="1">
+                <label for="opcao4a">Enderman</label><br>
+
+                <span style="display: flex; justify-content: space-between;">
+                    <!-- <button onclick="perguntaAnterior(3)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(5)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+                <p>5. Qual nome do Dragão que vive no Nether?</p>
+
+                <input type="radio" id="opcao5a" name="resposta5" value="1">
+                <label for="opcao5a">Enderdragon</label><br>
+
+                <input type="radio" id="opcao5b" name="resposta5" value="0">
+                <label for="opcao5b">Enderlord</label><br>
+
+                <input type="radio" id="opcao5c" name="resposta5" value="0">
+                <label for="opcao5c">Dragão das Sombras</label><br>
+
+                <span style="display: flex; justify-content: space-between;">
+                    <!-- <button onclick="perguntaAnterior(4)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(6)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+            <!--Rever-->
+            <div class="div-quiz" style="display: none;">
+                <p>6.Qual é o bioma mais raro no Minecraft?</p>
+
+                <input type="radio" id="opcao6a" name="resposta6" value="0">
+                <label for="opcao6a">Floresta de cogumelos</label><br>
+
+                <input type="radio" id="opcao6b" name="resposta6" value="1">
+                <label for="opcao6b">Mesa</label><br>
+
+                <input type="radio" id="opcao6c" name="resposta6" value="0">
+                <label for="opcao6c">End City</label><br>
+
+                <span style="display: flex; justify-content: space-between;">
+                    <!-- <button onclick="perguntaAnterior(5)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(7)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+
+                <p>7.Qual é o mob que só atira bolas de fogo?</p>
+
+                <input type="radio" id="opcao7a" name="resposta7" value="0">
+                <label for="opcao7a">Ghast</label><br>
+
+                <input type="radio" id="opcao7b" name="resposta7" value="1">
+                <label for="opcao7b">Blaze</label><br>
+
+                <input type="radio" id="opcao7c" name="resposta7" value="0">
+                <label for="opcao7c">Wither Skeleton</label><br>
+
+                <span style="display: flex; justify-content: space-between;">
+                    <!-- <button onclick="perguntaAnterior(6)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt=""></button> -->
+                    <button onclick="proximaPergunta(8)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+                <!--Rever-->
+                <p>8.Qual é a altura máxima do mundo no jogo?</p>
+
+                <input type="radio" id="opcao8a" name="resposta8" value="1">
+                <label for="opcao8a">320 blocos</label><br>
+
+                <input type="radio" id="opcao8b" name="resposta8" value="0">
+                <label for="opcao8b">475 blocos</label><br>
+
+                <input type="radio" id="opcao8c" name="resposta8" value="1">
+                <label for="opcao8c">512 blocos</label><br>
+                <!-- <span style="display: flex; justify-content: space-between;">
+                    <button onclick="perguntaAnterior(7)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(9)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+            <div class="div-quiz" style="display: none;">
+
+                <p>9. Em qual ano o Minecraft foi lançado?</p>
+
+                <input type="radio" id="opcao9a" name="resposta9" value="0">
+                <label for="opcao9a">2007</label><br>
+
+                <input type="radio" id="opcao9b" name="resposta9" value="0">
+                <label for="opcao9b">2006</label><br>
+
+                <input type="radio" id="opcao9c" name="resposta9" value="1">
+                <label for="opcao9c"> 2009</label><br>
+                <span style="display: flex; justify-content: space-between;">
+                    <!-- <button onclick="perguntaAnterior(8)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
+                    </button> -->
+                    <button onclick="proximaPergunta(10)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                    </button>
+                </span>
+            </div>
+
+
+            <div class="div-quiz" style="display: none;">
+    
+
+                <p>10. Item raro para criar poções poderosas?</p>
+
+                <input type="radio" id="opcao10a" name="resposta10" value="1">
+                <label for="opcao10a">Lágrima de Ghast</label><br>
+
+                <input type="radio" id="opcao10b" name="resposta10" value="0">
+                <label for="opcao10b">Olhos de Enderman</label><br>
+
+                <input type="radio" id="opcao10c" name="resposta10" value="0">
+                <label for="opcao10c">Coração de Netherite</label><br>
+
+                <span style="display: flex; justify-content: center; align-items: center;">
+                   
+                    <button style="display: flex; justify-content: center;" onclick="enviarRespostas()" class="button">Enviar</button>
+                </span>
+            </div>
+        </div>
+    </section>
+    <section id="section_saida" style="display: none;">
+
+        <div class="divResultados">
+            <h2>Resultados Obtidos</h2>
+            <p>
+                <span id="resultadosQuiz">
+
+                </span>
+            </p>
+
+            <a href="../dashboard/dashboard.html">Ranking</a>
+        </div>
+
+
+    </section>
+</body>
+
+</html>
+
+<script>
+    function rodarQuiz() {
+        const quiz = document.getElementById('section_quiz');
+        const intrucoes = document.getElementById('section_entrada');
+        alert('quiz')
+        intrucoes.style.display = "none"
+        quiz.style.display = "block"
+    }
+</script>

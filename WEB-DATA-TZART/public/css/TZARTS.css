@@ -11,7 +11,7 @@ body {
     height: 100vh;
 }   
 
-.interface {
+.navbar {
     max-width: 1280px;
     margin: 0 auto;
    
@@ -22,7 +22,7 @@ body {
 }
 
 
-.btn-contato button {
+.btn-login-cadastro button {
     padding: 10px 40px;
     font-size: 18px;
     font-weight: 600;
@@ -44,7 +44,7 @@ h2.titulo span {
 }
 
 button:hover,
-form .btn-enviar input:hover {
+form .btn-login-cadastro input:hover {
     box-shadow: 0px 0px 8px white;
     transform: scale(1.05);
 }
@@ -58,7 +58,7 @@ header {
     padding: 30px 4%;
 }
 
-header > .interface {
+header > .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -71,7 +71,7 @@ header a {
     transition: .2s;
 }
 
-header nav.menu-desktop a:hover {
+header nav.menu a:hover {
     color: #fff;
     transform: scale(1.05);
 }
@@ -80,7 +80,7 @@ header nav ul {
     list-style-type: none;
 }
 
-header nav.menu-desktop ul li {
+header nav.menu ul li {
     display: inline-block;
     padding: 0 70px;
 }
@@ -89,34 +89,34 @@ header nav.menu-desktop ul li {
 
 
 
-/* STYLE TOPPAGINA */
+/* STYLE PAGINAINICIAL */
 
-section.topo-do-site {
+section.paginaInicial {
     padding: 40px 4%;
 }
 
-section.topo-do-site .flex {
+section.paginaInicial .flex {
     align-items: center;
     justify-content: center;
     gap: 90px;
 }
 
-.topo-do-site h1 {
+.paginaInicial h1 {
     color: #fff;
     font-size: 42px;
     line-height: 40px;
 }
 
-.topo-do-site .txt-topo-site h1 span {
+.paginaInicial .txt-paginaInicial h1 span {
     color: rgb(141, 0, 0);
 }
 
-.topo-do-site .txt-topo-site p {
+.paginaInicial .txt-paginaInicial p {
     color: #fff;
     margin: 40px 0;
 }
 
-.topo-do-site .img-topo-site img {
+.paginaInicial .img-paginaInicial img {
     width: 400px;
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
@@ -133,19 +133,19 @@ section.topo-do-site .flex {
     }
 }
 
-/* FIM STYLE TOPPAGINA */
+/* FIM STYLE PAGINAINICIAL */
 
 /* STYLE FUNCIONALIDADES SITE */
 
-section.especiliadades {
+section.funcionalidades {
     padding: 40px 4%;
 }
 
-section.especiliadades .flex {
+section.funcionalidades .flex {
     gap: 60px;
 }
 
-.especiliadades .especialidades-box {
+.funcionalidades .funcionalidades-box {
     color: #fff;
     padding: 40px;
     border-radius: 20px;
@@ -153,24 +153,24 @@ section.especiliadades .flex {
     transition: .2s;
 }
 
-.especiliadades .especialidades-box:hover {
+.funcionalidades .funcionalidades-box:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px #ffffff78;
 }
 
-.especiliadades .especialidades-box i {
+.funcionalidades .funcionalidades-box i {
     font-size: 70px;
     color: rgb(141, 0, 0);
 }
 
-.especiliadades .especialidades-box h3 {
+.funcionalidades .funcionalidades-box h3 {
     font-size: 28px;
     margin: 15px 0;
 }
 
 /* FIM STYLE FUNCIONALIDADES SITE */
 
-/* STYLE MINHA HISTORIA */
+/* STYLE MINHA HISTORIA e SOBRE */
 section.sobre {
     padding: 80px 4%;
 }
@@ -211,20 +211,20 @@ section.sobre .flex {
     margin: 0 5px;
     transition: .2s;
 }
-/* FIM STYLE MINHA HISTORIA */
+/* FIM STYLE MINHA HISTORIA e SOBRE */
 
 /* STYLE MINHASARTES */
-section.portfolio {
+section.MinhasArtes {
     padding: 80px 4%;
     box-shadow: 0 0 40px 10px #ffffff1d;
 }
 
-section.portfolio .flex {
+section.MinhasArtes .flex {
     justify-content: space-around;
     margin-top: 60px;
 }
 
-.img-port {
+.img-MinhasArtes {
     width: 360px;
     height: 460px;
     background-size: cover;
@@ -235,7 +235,7 @@ section.portfolio .flex {
     position: relative;
 }
 
-.img-port:hover {
+.img-MinhasArtes:hover {
     background-position: 100% 100%;
 }
 

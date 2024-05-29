@@ -12,50 +12,43 @@
 </head>
 
 <body>
-    <div class="errou" id="errou">
-        <img src="../assets/imgs/cruz.png" alt="">
-    </div>
-    <div class="acertou" id="acertou">{
-        <img src="../assets/imgs/verificar.png" alt="">
-    }
 
-    </div>
-    <div  class="exibir" id="exibir">
-        Erro: Por favor, selecione uma alternativa antes de prosseguir.
-    </div>
+<!--navbar-->
+<header>
 
-    <nav>
-        <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="../assets/imgs/title.png" alt=""></span>
+    <div class="interface">
 
-    </nav>
+        <div class="logo">
 
-    <div id="imgAcertoErro" class="imgAcertoErro">
-        <span id="exibirImagem">
-           
-        </span>
-    </div>
-    <div id="cronometro">
-        <p id="timer">10:00</p>
-      </div>
-      <div id="acabouTempo" class="acabouTempo" style="width: 100%; height: 600px;   z-index: 1000; display: none; color: rgb(255, 0, 0); font-size: 80px; text-align: center; font-weight: bold;">
-            <h1>Tempo Esgotado !!!</h1>
-      </div>
+            <img style="width: 150px;" src="../assets/img/LOGO3.jpeg" alt="Logo">
+
+        </div><!--logo-->
+
+    
+     
+        <div class="overlay-menu" id="overlay-menu"></div>
+
+    </div><!--interface-->
+
+</header>
+<!--navbar-->
+   
     <section id="section_quiz" style="display: block;">
         <div class="quiz-container">
             <div class="div-quiz">
-                <p>1. Quem criou o Minecraft?</p>
+                <p>1.Quem pintou a Mona Lisa?</p>
 
                 <input type="radio" id="opcao1a" name="resposta1" value="1">
-                <label for="opcao1a">Markus Persson</label>
+                <label for="opcao1a">Vincent van Gogh</label>
 
                 <input type="radio" id="opcao1b" name="resposta1" value="0">
-                <label for="opcao1b">Linus Torvalds</label>
+                <label for="opcao1b">Pablo Picasso</label>
 
                 <input type="radio" id="opcao1c" name="resposta1" value="0">
-                <label for="opcao1c">Rasmus Lerdorf</label><br>
+                <label for="opcao1c">Leonardo da Vinci</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(2)">
-                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="" >
+                    <img width="35px" height="35px" src="../assets/img/seta-direita.png" alt="" >
 
                 </button>
             </div>

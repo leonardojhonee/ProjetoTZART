@@ -1,57 +1,4 @@
 
-window.onload = function () {
-    tempoInicialPagina = new Date();
-    startTempo()
-}
-
-let totalTempo = 10 * 60; // 10 minutos em segundos
-let tempoInterval;
-
-function startTempo() {
-    tempoInterval = setInterval(updateTempo, 1000);
-}
-
-function updateTempo() {
-    let minutos = Math.floor(totalTempo / 60); // Calcula os minutos restantes
-    let segundos = totalTempo % 60; // Calcula os segundos restantes
-
-    // Adiciona um zero à esquerda se os segundos forem menores que 10
-    if (segundos < 10) {
-        segundos = '0' + segundos;
-    }
-
-    // Atualiza o texto do elemento com id 'timer'
-    document.getElementById('timer').textContent = minutos + ':' + segundos;
-
-    // Verifica se o tempo acabou
-    if (totalTempo <= 0) {
-        clearInterval(tempoInterval); // Para o cronômetro
-        alert("O tempo acabou!");
-        window.location.href = "";
-    } else {
-        totalTempo--;
-    }
-}
-
-
-
-/*o tempo vem em milissegundos*/
-let tempoInicialPagina;
-let tempoInicialEnvio;
-function calcularTempoGasto(tempoInicial, tempoFinal) {
-    /*Math.flor arredonda para baixo*/
-    const tempoGastoMs = tempoFinal - tempoInicial;
-    const segundosGastos = Math.floor(tempoGastoMs / 1000);
-    const minutosGastos = Math.floor(segundosGastos / 60);
-    // const horasGastas = Math.floor(minutosGastos / 60);
-    /*formata e usa % para pegar o restp dos minutos e segundos*/
-
-    const tempoGastoFormatado = `${minutosGastos % 60}:${segundosGastos % 60}`;
-
-    return tempoGastoFormatado;
-}
-
-
 
 function validarRespostas() {
     var perguntas = document.querySelectorAll('.div-quiz');
@@ -67,17 +14,6 @@ function validarRespostas() {
     return true;
 }
 
-// function perguntaAnterior(atual) {
-//     var perguntas = document.querySelectorAll('.div-quiz');
-
-//     for (var contador = 0; contador < perguntas.length; contador++) {
-//         if (contador == atual - 2) {
-//             perguntas[contador].style.display = 'block';
-//         } else {
-//             perguntas[contador].style.display = 'none';
-//         }
-//     }
-// }
 function mostrarMensagem() {
     exibir.style.display = 'block';
 }
@@ -86,18 +22,6 @@ function ocultarMensagem() {
     exibir.style.display = 'none';
 }
 
-function mostrarAcertou() {
-    acertou.style.display = "block"
-}
-function ocultarAcertou() {
-    acertou.style.display = "none"
-}
-function mostrarErrou() {
-    errou.style.display = "block"
-}
-function ocultarErrou() {
-    errou.style.display = "none"
-}
 
 let mensagemExibida = false;
 /*utilizei o metodo de argumento na funcao vinda do onclick*/
@@ -133,21 +57,7 @@ function proximaPergunta(proxima) {
         // Obtém o valor da resposta selecionada
         const respostaSelecionada = document.querySelector(`input[name="resposta${proxima -1}"]:checked`).value;
 
-        // Verifica se a resposta selecionada é 1 ou 0
-        if (respostaSelecionada === "1") {
-            mostrarAcertou()
-            setTimeout(() => {
-                ocultarAcertou();
-
-            }, 3000);
-        } else {
-            mostrarErrou()
-            setTimeout(() => {
-                ocultarErrou();
-
-            }, 3000);
-        }
-    
+       
     
     // Se todas as respostas estiverem checadas, mostrar a pergunta correta
     for (var contador = 0; contador < perguntas.length; contador += 1) {
@@ -185,11 +95,8 @@ function enviarRespostas() {
 
     console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
     calcularKPIs()
-    tempoInicialEnvio = new Date();
-    const tempoGasto = calcularTempoGasto(tempoInicialPagina, tempoInicialEnvio);
-    console.log('Tempo gasto:', tempoGasto);
-    // const tempoTotal = calcularTempoTotal()
-    // console.log('Acertos feth:',  tempoTotal)
+  
+    
 
     console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO2);
 

@@ -1,0 +1,246 @@
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+@import url('https://fonts.cdnfonts.com/css/pixies');
+
+@import url('https://fonts.cdnfonts.com/css/minercraftory');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../assets/img/TZART.png);
+    background-size: cover;
+    background-color: black;
+    /* background-color: rgb(40, 40, 40); */
+
+}
+
+
+/* STYLE NAVBAR */
+header {
+    padding: 30px 4%;
+}
+
+header > .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #acacac;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header nav.menu-desktop a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 70px;
+}
+
+/* FIM STYLE NAVBAR */
+
+
+
+/*nav*/
+
+nav {
+    background-color: rgba(0, 0, 0, 0.667);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /*indice de empilhamento para elementos que nao sao padroes(static)*/
+    backdrop-filter: blur(2px);
+    margin-bottom: 80px;
+}
+
+nav .title {
+    margin: auto;
+    margin-left: 580px;
+}
+
+
+/*fim nav*/
+.topoQuiz {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    padding: 10px 20px;
+    font-family: 'Minercraftory', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.quiz-container {
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    width: 520px;
+    height: 315px;
+    background-color: #000000;
+    border: 10px solid rgb(141, 0, 0);
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.div-quiz {
+    margin-bottom: 20px;
+    /* padding: 10px; */
+}
+
+.divQuiz span {
+    border-radius: 10px;
+}
+
+.logo h2 {
+    margin-right: 10px;
+    color: #4e7b40;
+}
+
+.div-quiz p {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-weight: 1000;
+    font-size: larger;
+    border: 2px solid white;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 10px 10px;
+    background-color: rgb(141, 0, 0);
+}
+
+.button1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Estilização dos inputs como botões */
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 57px;
+    width: 350px;
+    text-align: center;
+    background-color: #282828;
+    border: none;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilização quando o input é selecionado */
+input[type="radio"]:checked+label {
+    background-color: #aa478b;
+    color: #fff;
+}
+
+.quiz-container button {
+    background: transparent;
+    border: none;
+    margin-left: 420px;
+}
+
+.quiz-container .button {
+    background: transparent;
+    border: none;
+    width: 200px;
+    height: 30px;
+    background-color: #2f6e16;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.7s;
+    
+  margin: auto;
+}
+
+.quiz-container .button:hover {
+    background-color: #579744;
+}
+
+/*section saida quiz*/
+.divResultados {
+    background-color: #606060;
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    width: 550px;
+    height: 350px;
+    padding-top: 50px;
+    border-radius: 20px;
+}
+
+.divResultados h2 {
+    color: black;
+    margin-bottom: 30px;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 34px;
+}
+
+.divResultados span {
+    color: rgb(117, 196, 38);
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.divResultados a {
+    border: none;
+    padding: 7px 60px;
+    color: #579744;
+    font-weight: bold;
+    background: #2e2f2e;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.divResultados a:hover {
+    background-color: #4e7b40;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.8s;
+}
+
+.divResultados button:hover {
+    background: #60aa47;
+}
+
+/*divs para exibir validações*/
+.exibir{
+    color: rgb(220, 8, 8);
+    width: 300px; height: 85px; position: absolute; top: 155px; left: 1080px;
+    padding: 10px; text-align: center;  background-color: #FFDEAD; border: 4px solid saddlebrown; font-size: 18px; font-weight: 500; display: none;
+}
+

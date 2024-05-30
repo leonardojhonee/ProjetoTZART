@@ -65,7 +65,7 @@
         let senhalength = senhaVar.length >= 8;
         let senhaMaiusculo = /[A-Z]/.test(senhaVar);
         let senhaNum = /[0-9]/.test(senhaVar);
-        let senhaEspecial = /[!@#.#]/.test(senhaVar)
+        
 
         if (emailVar == "" || senhaVar == "") {
 
@@ -77,7 +77,7 @@
             mensagem_erro.innerHTML = "Email inválido !"
             return false;
 
-        } else if (!senhalength || !senhaMaiusculo || !senhaNum || !senhaEspecial) {
+        } else if (!senhalength || !senhaMaiusculo || !senhaNum) {
 
             mensagem_erro.innerHTML = "Senha Inválida !"
             return false;
@@ -113,7 +113,7 @@
                     sessionStorage.NOME_USUARIO2 = resposta.nome;
 
                     setTimeout(function () {
-                        window.location = "./quiz/telaInicialQuiz.html";
+                        window.location = "inspiracoesart.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

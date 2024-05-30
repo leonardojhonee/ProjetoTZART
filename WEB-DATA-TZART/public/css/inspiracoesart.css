@@ -1,0 +1,178 @@
+/* STYLE GERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #000;
+    height: 100vh;
+
+}
+
+.flex {
+    display: flex;
+}
+
+h2.titulo {
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+}
+
+h2.titulo span {
+    color: rgb(141, 0, 0);
+}
+
+/* FIM STYLE GERAL */
+
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 40px 10px #4f4f4f6e;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 40px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #520303;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-content h1 {
+    margin-top: 0;
+    color: white;
+}
+
+.main-content p {
+    margin-top: 0;
+    color: white;
+}
+
+
+/* FIM SIDEBAR */
+
+.section-carrossel{
+padding: 60px;    
+padding-left: 90px;
+   
+    
+}
+
+.section-carrossel flex{
+    align-items: center;
+}
+
+
+
+.carrossel {
+    display: flex;
+    filter: drop-shadow(0px 0px 10px #000);
+    overflow: hidden;
+    width: 1000px;
+
+}
+
+.container {
+    display: flex;
+    transition: 2s ease-in-out;
+    transform: translateX(0);
+
+}
+
+.container img {
+    position: relative;
+    width: 1000px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+section.funcionalidades {
+    padding: 40px 4%;
+   
+}
+
+section.funcionalidades .flex {
+    gap: 60px;
+}
+
+.funcionalidades .funcionalidades-box {
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .2s;
+}
+
+.funcionalidades .funcionalidades-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ffffff78;
+}
+
+.funcionalidades .funcionalidades-box i {
+    font-size: 70px;
+    color: rgb(141, 0, 0);
+}
+
+.funcionalidades .funcionalidades-box h3 {
+    font-size: 28px;
+    margin: 15px 0;
+}
+*/

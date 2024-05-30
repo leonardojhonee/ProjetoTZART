@@ -72,7 +72,6 @@
     let senhalength = senhaVar.length >= 8;
     let senhaMaiusculo = /[A-Z]/.test(senhaVar);
     let senhaNum = /[0-9]/.test(senhaVar);
-    let senhaEspecial = /[!@#.#]/.test(senhaVar)
 
     if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
@@ -84,7 +83,7 @@
       mensagem_erro.innerHTML = "Email inválido !";
       return false;
 
-    } else if (!senhalength || !senhaMaiusculo || !senhaNum || !senhaEspecial) {
+    } else if (!senhalength || !senhaMaiusculo || !senhaNum) {
 
       mensagem_erro.innerHTML = "Senha Inválida !";
       return false;

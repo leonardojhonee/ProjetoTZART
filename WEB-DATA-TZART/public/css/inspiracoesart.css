@@ -179,54 +179,99 @@ span {
     padding-top: 20px;
 }
 
+/* FIM TELA INICIO QUIZ */
 
 
+/* DASHBOARD */
 
+/* RANKING QUIZ */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-section.funcionalidades {
-    padding: 40px 4%;
+.tabela {
+    
+    width: 1250px;
+    border-collapse: collapse;
+    
    
-}
+   
+    color: #fff; /
+  }
+  
+  
+  .cabecalho {
+    background-color: #303f49; 
+    display: flex;
+    font-weight: bold;
+    
+  }
+  
+  .cabecalho-item {
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #424242;
+    text-align: center;
+  }
+  
+  .corpo {
+    padding: 10px;
+  }
+  
+  .linha {
+    display: flex;
+    border-bottom: 1px solid #424242;
+  }
+  
+  
+  .item {
+    margin: 0;
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #424242;
+    text-align: center;
+  }
+  
+  .item:last-child {
+    border-right: none;
+  }
+  
+  .linha:hover {
+    background-color: #353b45;
+  }
+ 
 
-section.funcionalidades .flex {
-    gap: 60px;
-}
 
-.funcionalidades .funcionalidades-box {
-    color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    margin-top: 45px;
-    transition: .2s;
-}
 
-.funcionalidades .funcionalidades-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ffffff78;
-}
 
-.funcionalidades .funcionalidades-box i {
-    font-size: 70px;
-    color: rgb(141, 0, 0);
-}
 
-.funcionalidades .funcionalidades-box h3 {
-    font-size: 28px;
-    margin: 15px 0;
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIM RANKING QUIZ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIM DASHBOARD */

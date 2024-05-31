@@ -1,316 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!--ICONES-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <!--ICONES-->
+    
+        <!--FONTS-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <!--FONTS-->
+        <link rel="icon" href="../assets/img/LOGO3.jpeg" >
+        <link rel="stylesheet" href="../css/inspiracoesart.css">
+        <title>TZARTS</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-
+        <script src="dashboard.js"></script>
+    
+    </head>
 <body>
-    <section class="sectionsMenus">
-        <div class="navigation">
-            <ul>
-                <li class="list active">
-                    <a href="../index.html">
-                        <span class="icon"><ion-icon name="home"></ion-icon></span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <br>
+    
+    <div class="sidebar">
+        <div class="logo">
 
-                <li class="list">
-                    <a href="./dashboard.html">
-                        <span class="icon"><ion-icon name="analytics"></ion-icon></span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <br>
-                <li class="list">
-                    <a href="./perfil/perfil.html">
-                        <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
-                        <span class="title">Histórico</span>
-                    </a>
-                </li>
-                <br>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-                <br>
-                <li class="list" style="margin-top: 250px;">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
-            </ul>
+            <a href="index.html"><img src="../img/LOGO3.jpeg" alt="Logo"></a>
+
         </div>
-        <h1 style="position: absolute; margin-left: 250px; padding: 15px; font-size: 32px; color: rgb(20, 221, 87);"
-            class="titleMetrica">Métricas Gerais</h1>
-        <div class="containerRef">
+        <ul>
+            <li><a href="../INSPOART.html"><strong> INSPIRAÇÕES ARTISTICAS.</strong> </a></li>
+            <li><a href="../quiz/inicioQuiz.html"><strong> QUIZ ARTE. </strong></a></li>
+            <li><a href="dashboard.html"><strong> DASHBOARD QUIZ.</strong></a></li>
 
-            <div class="container">
-                <div class="cardKPIs">
-                    <h1>Média Acertos</h1>
-                    <p id="divMediaAcertos"></p>
+        </ul>
+    </div>
 
-                </div>
-                <div class="cardKPIs">
-                    <h1>Pontuação Média</h1>
-                    <p id="divPontuacao"></p>
-                    <div class="color-box"></div>
-                </div>
 
-                <div class="cardKPIs" style="margin-right: 400px;">
-                    <h1>Tempo médio</h1>
-                    <p id="divTempo"></p>
-                    <div class="color-box"></div>
-                </div>
-                <div class="nameGrafico">
-                    <h3>Usuários por Faixa de pontos </h3>
+    <section class="ranking-quiz">
+        <h2 class="titulo"> RANKING <span>QUIZ.</span></h2>
+        <div class="containerChartJs">
+
+            <h2>Quiz Ranking</h2>
+            <div id="tabelaRanking" class="tabela">
+                <div class="cabecalho">
+                    <div class="cabecalho-item">POSIÇÃO</div>
+                    <div class="cabecalho-item">NOME</div>
+                    <div class="cabecalho-item">ACERTOS</div>
                 </div>
 
-                <div class="graficoPizza">
-
-                    <canvas style=" width: 700px; height: 300px; " id="myChartCanvas"></canvas>
-                </div>
+                <div id="corpoTabela" class="corpo"></div>
+                
             </div>
+        </div>
 
-            <div class="containerChartJs">
-
-                <h2>Quiz Ranking</h2>
-                <div id="tabelaRanking" class="tabela">
-                    <div class="cabecalho">
-                        <div class="cabecalho-item">Posição</div>
-                        <div class="cabecalho-item">Usuário</div>
-                        <div class="cabecalho-item">Pontuação</div>
-                        <div class="cabecalho-item">Tempo Total</div>
-                    </div>
-                    <!--Para barra de rolagem-->
-                    <div class="corpo-scroll">
-                        <div id="corpoTabela" class="corpo"></div>
-                    </div>
-                </div>
-            </div>
 
     </section>
 
+    
+
+
 </body>
-
 </html>
-<script>
-
-    window.addEventListener('load', function () {
-        obterDadosGrafico()
-        listar();
-        mediaAcertos();
-    });
-    // Atualiza os valores a cada 1 minutos
-    setInterval(listar, 60000)
-    setInterval(mediaAcertos, 60000);
-
-    const ranking = [];
-    function listar() {
-        fetch("/medidas/ranking", {
-            method: "GET",
-        })
-            .then(function (resposta) {
-                if (!resposta.ok) {
-                    throw new Error('Erro ao recuperar o ranking');
-                }
-                return resposta.json();
-            })
-            .then((ranking) => {
-                console.log('Dados do ranking recebidos com sucesso:', ranking);
-                preencherRanking(ranking);
-            })
-            .catch(function (erro) {
-                console.error(`#ERRO: ${erro.message}`);
-            });
-    }
-    // função para preencher o ranking
-    function preencherRanking(ranking) {
-        //reordena do maior para o menor (sort() = ornagina os elementos do arraw conforme a função dada)
-        ranking.sort((a, b) => b.pontuacao - a.pontuacao);
-
-        const corpoTabela = document.getElementById('corpoTabela');
-        corpoTabela.innerHTML = '';
-
-        //forEach() é usado para iterar sobre cada entrada no ranking ordenado
-        ranking.forEach((resultado, indice) => {
-            const valorLinha = document.createElement('div');
-            valorLinha.classList.add('linha');
-            valorLinha.innerHTML = `
-            <div class="item">${indice + 1}º</div>
-            <div class="item">${resultado.nome_usuario}</div>
-            <div class="item">${resultado.pontuacao} pontos</div>
-            <div class="item">${resultado.tempo_gasto}</div>
-        `;
-            corpoTabela.innerHTML += valorLinha.outerHTML;
-        });
-    }
-
-    function exibirValoresKPIs() {
-        console.log('Certas:', sessionStorage.RESPOSTA_CORRETA);
-        console.log('Total:', sessionStorage.PONTUACAO_TOTAL);
-        console.log('Erros:', sessionStorage.DESACERTOS)
-        console.log('Aproveitamento:', sessionStorage.APROVEITAMENTO)
-    }
-
-
-    function mediaAcertos() {
-        fetch("/medidas/mediaAcertos", {
-            method: "GET",
-        })
-            .then(function (resposta) {
-                if (!resposta.ok) {
-                    throw new Error('Erro ao recuperar o ranking');
-                }
-                return resposta.json();
-            })
-            .then((mediaAcertos) => {
-                let mediaAcertosTotal = "Média não disponível";
-                let mediaPontuacaoTotal = "Média não disponível";
-                let mediaTempoTotal = "Média não disponível";
-
-                if (mediaAcertos.length > 0) {
-                    const media = parseFloat(mediaAcertos[0].media_acertos_total);
-                    const media2 = parseFloat(mediaAcertos[0].media_pontuacao_total);
-                    const media3 = parseFloat(mediaAcertos[0].media_tempo_gasto);
-
-                    if (!isNaN(media)) {
-                        mediaAcertosTotal = Math.ceil(media);
-                        mediaPontuacaoTotal = Math.ceil(media2);
-                        mediaTempoTotal = Math.ceil(media3);
-                    }
-                }
-
-                document.getElementById('divMediaAcertos').innerHTML = `${mediaAcertosTotal}<strong><span style="font-size: 20px;"> questões</span></strong>`;
-                document.getElementById('divPontuacao').innerHTML = `${mediaPontuacaoTotal}<strong><span style="font-size: 20px;"> pontos</span></strong>`;
-                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;"> minuto</span></strong>`;
-            })
-            .catch(function (erro) {
-                console.error(`#ERRO: ${erro.message}`);
-                document.getElementById('divMediaAcertos').innerText = "Erro ao obter a média";
-            });
-    }
-
-    function preencherMediaAcertos(mediaAcertos) {
-        const divMediaAcertos = document.getElementById('divMediaAcertos');
-        if (divMediaAcertos) {
-            divMediaAcertos.style.display = "block";
-            if (mediaAcertos.length > 0) {
-                const media = mediaAcertos[0].media_acertos_total;
-                if (media !== undefined) {
-                    divMediaAcertos.innerText = `Média: ${media}`;
-                } else {
-                    divMediaAcertos.innerText = "Média não disponível.";
-                }
-            } else {
-                divMediaAcertos.innerText = "Nenhum dado disponível.";
-            }
-        } else {
-            console.error("Div não encontrada para preencher a média de acertos.");
-        }
-    }
-
-    function obterDadosGrafico() {
-
-        fetch(`/medidas/graficoPizza`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-
-    function plotarGrafico(resposta) {
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Usuários',
-                data: [],
-                fill: false,
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(0, 128, 128)'
-                ],
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.faixa);
-            dados.datasets[0].data.push(registro.total_usuarios);
-
-
-        }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'pie',
-            data: dados,
-            responsive: true,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'right',
-                        
-                            fontColor: '#fffff' // Cor do texto dos rótulos da legenda
-        
-                    },
-                }
-            },
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`myChartCanvas`),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-    }
-</script>

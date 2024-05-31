@@ -52,19 +52,6 @@ padding-top: 80px;
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.div-quiz {
-    margin-bottom: 20px;
-}
-
-.divQuiz span {
-    border-radius: 10px;
-}
-
-.logo h2 {
-    margin-right: 10px;
-    color: #4e7b40;
-}
-
 .div-quiz p {
     font-size: 24px;
     color: #ffffff;
@@ -72,15 +59,12 @@ padding-top: 80px;
     font-weight: bold;
     font-weight: 1000;
     font-size: larger;
-
     height: auto;
     width: auto;
     text-align: center;
     padding: 10px 10px;
 
 }
-
-
 
 
 input[type="radio"] {
@@ -135,36 +119,48 @@ input[type="radio"]:checked+label {
 
 /*section saida quiz*/
 .divResultados {
-    background-color: #606060;
     margin: auto;
-    text-align: center;
-    border: 2px solid black;
-    width: 550px;
-    height: 350px;
-    padding-top: 50px;
-    border-radius: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    width: 520px;
+    height: 360px;
+    background-color: #2f0202;
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .divResultados h2 {
-    color: black;
-    margin-bottom: 30px;
-    font-family: 'Minecraft', sans-serif;
-    font-size: 34px;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-weight: 1000;
+    font-size: larger;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 10px 10px;
 }
 
 .divResultados span {
-    color: rgb(175, 33, 33);
-    font-size: 18px;
-    font-family: Verdana, sans-serif;
-    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-weight: 1000;
+    font-size: larger;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 10px 10px;
 }
 
 .divResultados a {
     border: none;
     padding: 7px 60px;
-    color: #3d0f0f;
+    color: #ffffff;
     font-weight: bold;
-    background: #2e2f2e;
+    background: #000000;
     cursor: pointer;
     text-decoration: none;
     font-size: 20px;

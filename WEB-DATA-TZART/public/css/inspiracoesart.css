@@ -14,6 +14,7 @@ body {
 
 }
 
+
 .flex {
     display: flex;
 }
@@ -28,20 +29,30 @@ h2.titulo span {
     color: rgb(141, 0, 0);
 }
 
+span {
+    color: rgb(141, 0, 0);
+}
+
+.logo img{
+
+    width: 170px; 
+    padding-left: 40px;
+}
+
 /* FIM STYLE GERAL */
 
-
+/*#2f0202;*/
 
 /* SIDEBAR */
 
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: black;
+    background-color: #000000;
     color: white;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 0 40px 10px #4f4f4f6e;
+   
 }
 
 .sidebar h2 {
@@ -64,10 +75,12 @@ h2.titulo span {
     display: block;
     padding: 40px;
     transition: background 0.3s;
+    border-radius: 15px;
 }
 
 .sidebar ul li a:hover {
     background-color: #520303;
+    border-radius: 15px;
 }
 
 .main-content {
@@ -89,14 +102,16 @@ h2.titulo span {
 
 /* FIM SIDEBAR */
 
-.section-carrossel{
-padding: 60px;    
-padding-left: 90px;
+
+/* CARROSEL TELA INSPIRAÇÕES ARTISTICAS */
+.section-carrossel {
+    padding: 70px;
+    padding-left: 130px;
    
-    
+
 }
 
-.section-carrossel flex{
+.section-carrossel flex {
     align-items: center;
 }
 
@@ -106,7 +121,7 @@ padding-left: 90px;
     display: flex;
     filter: drop-shadow(0px 0px 10px #000);
     overflow: hidden;
-    width: 1000px;
+    width: 1100px;
 
 }
 
@@ -119,11 +134,50 @@ padding-left: 90px;
 
 .container img {
     position: relative;
-    width: 1000px;
+    width: 1100px;
 
 
 }
 
+/* FIM CARROSEL TELA INSPIRAÇÕES ARTISTICAS */
+
+/* TELA INICIO QUIZ */
+
+.section-inicioQuiz {
+    padding: 60px;
+    padding-left: 90px;
+    background-image: url(../assets/img/FUNDOINSPOART1.png);
+    background-size: 1450px;
+}
+
+.txt-inicio-quiz {
+    padding-top: 20px;
+    font-size: large;
+    color: #fff;
+
+}
+
+.btn-iniciar-quiz button {
+    background-color: #520303;
+    color: #fff;
+    height: 70px;
+    width: 150px;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    
+}
+
+.btn-iniciar-quiz button :hover {
+    background-color: #d40606;
+    
+    
+}
+
+.btn-iniciar-quiz {
+    padding-top: 20px;
+}
 
 
 

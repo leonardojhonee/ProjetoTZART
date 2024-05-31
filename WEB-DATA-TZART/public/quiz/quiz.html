@@ -4,35 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+
+    <!--ICONES-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!--ICONES-->
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--FONTS-->
+
+    <link rel="icon" href="../assets/img/LOGO3.jpeg" >
     <link rel="stylesheet" href="../css/quiz.css">
+    <title>TZARTS</title>
+
     <script src="quiz.js"></script>
-    <!-- <script src="./dashboard/dashboard.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!--navbar-->
-<header>
+    <!--TITULO-->
+    <header>
 
-    <div class="interface">
+        <h2 class="titulo"> QUIZ <span>ARTE.</span></h2>
 
-        <div class="logo">
+    </header>
+    <!--TITULO-->
 
-            <img style="width: 150px;" src="../assets/img/LOGO3.jpeg" alt="Logo">
 
-        </div><!--logo-->
-
-    
-     
-        <div class="overlay-menu" id="overlay-menu"></div>
-
-    </div><!--interface-->
-
-</header>
-<!--navbar-->
-   
+    <!--PERGUNTAS QUIZ-->
     <section id="section_quiz" style="display: block;">
         <div class="quiz-container">
             <div class="div-quiz">
@@ -48,7 +52,7 @@
                 <label for="opcao1c">Leonardo da Vinci</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(2)">
-                    <img width="35px" height="35px" src="../assets/img/seta-direita.png" alt="" >
+                    <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>
 
                 </button>
             </div>
@@ -65,13 +69,10 @@
                 <input type="radio" id="opcao2c" name="resposta2" value="0">
                 <label for="opcao2c">MineBlocks</label><br>
 
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(2)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(3)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+
+                <button onclick="proximaPergunta(3)">
+                    <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>
+                </button>
                 </span>
             </div>
 
@@ -88,13 +89,9 @@
                 <input type="radio" id="opcao3c" name="resposta3" value="0">
                 <label for="opcao3c">The Void, The Nether, Overworld</label><br>
 
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(2)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(4)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+
+                <button onclick="proximaPergunta(4)">
+                    <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                </button>
                 </span>
             </div>
 
@@ -111,12 +108,9 @@
                 <label for="opcao4a">Enderman</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(3)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(5)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                        <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                    </button>
                 </span>
             </div>
 
@@ -133,15 +127,12 @@
                 <label for="opcao5c">Dragão das Sombras</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(4)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(6)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                        <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                    </button>
                 </span>
             </div>
-            <!--Rever-->
+
             <div class="div-quiz" style="display: none;">
                 <p>6.Qual é o bioma mais raro no Minecraft?</p>
 
@@ -155,12 +146,9 @@
                 <label for="opcao6c">End City</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(5)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(7)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                        <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                    </button>
                 </span>
             </div>
 
@@ -178,16 +166,14 @@
                 <label for="opcao7c">Wither Skeleton</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(6)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt=""></button> -->
+
                     <button onclick="proximaPergunta(8)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                        <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                    </button>
                 </span>
             </div>
 
             <div class="div-quiz" style="display: none;">
-                <!--Rever-->
+
                 <p>8.Qual é a altura máxima do mundo no jogo?</p>
 
                 <input type="radio" id="opcao8a" name="resposta8" value="1">
@@ -198,13 +184,9 @@
 
                 <input type="radio" id="opcao8c" name="resposta8" value="1">
                 <label for="opcao8c">512 blocos</label><br>
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(7)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(9)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+
+                <button onclick="proximaPergunta(9)">
+                    <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                </button>
                 </span>
             </div>
 
@@ -221,18 +203,15 @@
                 <input type="radio" id="opcao9c" name="resposta9" value="1">
                 <label for="opcao9c"> 2009</label><br>
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(8)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(10)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                        <i style="font-size: 40px; color: white;" class="bi bi-arrow-right-square"></i>                    </button>
                 </span>
             </div>
 
 
             <div class="div-quiz" style="display: none;">
-    
+
 
                 <p>10. Item raro para criar poções poderosas?</p>
 
@@ -246,12 +225,15 @@
                 <label for="opcao10c">Coração de Netherite</label><br>
 
                 <span style="display: flex; justify-content: center; align-items: center;">
-                   
-                    <button style="display: flex; justify-content: center;" onclick="enviarRespostas()" class="button">Enviar</button>
+
+                    <button style="display: flex; justify-content: center;" onclick="enviarRespostas()"
+                        class="button">Enviar</button>
                 </span>
             </div>
         </div>
     </section>
+    <!--PERGUNTAS QUIZ-->
+
     <section id="section_saida" style="display: none;">
 
         <div class="divResultados">
@@ -267,6 +249,7 @@
 
 
     </section>
+
 </body>
 
 </html>
@@ -274,9 +257,7 @@
 <script>
     function rodarQuiz() {
         const quiz = document.getElementById('section_quiz');
-        const intrucoes = document.getElementById('section_entrada');
         alert('quiz')
-        intrucoes.style.display = "none"
         quiz.style.display = "block"
     }
 </script>

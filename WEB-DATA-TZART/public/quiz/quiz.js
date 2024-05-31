@@ -1,26 +1,5 @@
 
 
-function validarRespostas() {
-    var perguntas = document.querySelectorAll('.div-quiz');
-
-    for (var validacao = 0; validacao < perguntas.length; validacao++) {
-        /*verifica se tem pelo menos um input selecionda por div*/
-        var inputs = perguntas[validacao].querySelectorAll('input[type="radio"]:checked');
-        if (inputs.length == 0) {
-            alert("Erro: Por favor, selecione uma alternativa antes de prosseguir.");
-            return false;
-        }
-    }
-    return true;
-}
-
-function mostrarMensagem() {
-    exibir.style.display = 'block';
-}
-
-function ocultarMensagem() {
-    exibir.style.display = 'none';
-}
 
 
 let mensagemExibida = false;
@@ -72,12 +51,8 @@ function proximaPergunta(proxima) {
 
 
 function enviarRespostas() {
-    clearInterval(tempoInterval); // Para o cronômetro
-
-    if (!validarRespostas()) {
-        return;
-    }
-
+    
+ 
     /*Obtem os valores selecionados, que serão enviados para o banco*/
     const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
     const resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
@@ -118,7 +93,6 @@ function enviarRespostas() {
             resposta10Server: resposta10,
             acertosServer: sessionStorage.RESPOSTA_CORRETA,
             emailUsuarioServer: sessionStorage.EMAIL_USUARIO2,
-            tempoGastoServer: tempoGasto,
             pontuacaoTotalServer: sessionStorage.PONTUACAO_TOTAL
         }),
     })
@@ -139,12 +113,11 @@ function enviarRespostas() {
                 resultadosQuiz.innerHTML = `
                 Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br>
                 Pontuação: <b>${sessionStorage.PONTUACAO_TOTAL}/30 </b><br>
-                Tempo de duração: <b>${tempoGasto}</b><br>
                 Você também pode conferir sua classificação em nosso ranking clicando no botão abaixo:<br>
                
                 `
             } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
+                throw "Houve um erro ao tentar realizar o cadastro das respostas!";
             }
         })
         .catch(function (erro) {

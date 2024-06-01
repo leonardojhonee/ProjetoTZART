@@ -80,7 +80,7 @@ function plotarGrafico(resposta) {
     let dados = {
         labels: ['1-2', '3-4', '5-6', '7-8', '9-10'],
         datasets: [{
-            label: 'PONTUAÇÃO',
+            label: 'QTD_PESSOAS',
             data: [],
             fill: false,
             backgroundColor: [
@@ -109,7 +109,6 @@ function plotarGrafico(resposta) {
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
-        labels.push(registro.faixa);
         dados.datasets[0].data.push(registro.total_usuarios);
 
 
@@ -117,13 +116,11 @@ function plotarGrafico(resposta) {
 
     console.log('----------------------------------------------')
     console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
     console.log('Dados:')
     console.log(dados.datasets)
     console.log('----------------------------------------------')
 
-    // Criando estrutura para plotar gráfico - config
+    // Criando estrutura para plotar gráfico - config  labels.push(registro.total_usuarios);
     const config = {
         type: 'bar',
         data: dados,
@@ -160,20 +157,20 @@ if (response.ok) {
         
 
 
-        if (novoRegistro[0].faixa == dados.labels[dados.labels.length - 1]) {
+        if (novoRegistro[0].total_usuarios == dados.labels[dados.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
             
             console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].faixa)
+            console.log(novoRegistro[0].total_usuarios)
             console.log("Horário do último dado capturado:")
             console.log(dados.labels[dados.labels.length - 1])
             console.log("---------------------------------------------------------------")
         } else {
             // tirando e colocando valores no gráfico
             dados.labels.shift(); // apagar o primeiro
-            dados.labels.push(novoRegistro[0].faixa); // incluir um novo momento
-
+            dados.labels.push(novoRegistro[0].total_usuarios); // incluir um novo momento
+            
             dados.datasets[0].data.shift();  // apagar o primeiro de umidade
             dados.datasets[0].data.push(novoRegistro[0].total_usuarios); // incluir uma nova medida de umidade
 

@@ -15,18 +15,7 @@ function ranking() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-function mediaAcertos() {
 
-    var instrucaoSql = `SELECT 
-    AVG(CAST(qtd_acertos AS DECIMAL(4,2))) AS media_acertos_total, 
-    AVG(CAST( pontuacao_total AS DECIMAL(4,2))) AS media_pontuacao_total,
-    TIME_FORMAT(SEC_TO_TIME(ROUND(AVG(SUBSTRING_INDEX(tempo_gasto, ':', 1) * 60 + SUBSTRING_INDEX(tempo_gasto, ':', -1)))), '%i:%s')  AS media_tempo_gasto
-FROM 
-    quiz_resultado;`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
 
 function buscarUltimasMedidas(email, limite_linhas) {
 
@@ -38,17 +27,15 @@ function buscarUltimasMedidas(email, limite_linhas) {
 function graficoPizza() {
 
     var instrucaoSql = `SELECT
-    CASE
-      WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-      WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-      ELSE 'Mais de 24 pontos'
-    END AS faixa,
+   
     COUNT(*) AS total_usuarios
   FROM quiz_resultado
   GROUP BY CASE
-        WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-        WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-        ELSE 'Mais de 24 pontos'
+        WHEN qtd_acertos <= 2 THEN 'Até 2 pontos'
+      WHEN qtd_acertos BETWEEN 3 AND 4 THEN 'De 3 a 4 pontos'
+      WHEN qtd_acertos BETWEEN 5 AND 6 THEN 'De 5 a 6 pontos'
+      WHEN qtd_acertos BETWEEN 7 AND 8 THEN 'De 7 a 8 pontos'
+      ELSE 'De 9 pra cima'
       END;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -58,6 +45,5 @@ function graficoPizza() {
 module.exports = {
     buscarUltimasMedidas,
     ranking,
-    mediaAcertos,
     graficoPizza
 }

@@ -186,6 +186,14 @@ span {
 
 /* RANKING QUIZ */
 
+.ranking-quiz {
+padding: 50px;
+padding-left: 30px;
+
+
+}
+
+
 .tabela {
     
     width: 1250px;
@@ -198,7 +206,7 @@ span {
   
   
   .cabecalho {
-    background-color: #303f49; 
+    background-color: #2f0202; 
     display: flex;
     font-weight: bold;
     
@@ -207,7 +215,7 @@ span {
   .cabecalho-item {
     flex: 1;
     padding: 10px;
-    border-right: 1px solid #424242;
+    border-right: 1px solid #000000; 
     text-align: center;
   }
   
@@ -217,7 +225,7 @@ span {
   
   .linha {
     display: flex;
-    border-bottom: 1px solid #424242;
+    border-bottom: 1px solid #000000;
   }
   
   
@@ -225,7 +233,7 @@ span {
     margin: 0;
     flex: 1;
     padding: 10px;
-    border-right: 1px solid #424242;
+    border-right: 1px solid #41030386;
     text-align: center;
   }
   
@@ -233,9 +241,7 @@ span {
     border-right: none;
   }
   
-  .linha:hover {
-    background-color: #353b45;
-  }
+
  
 
 

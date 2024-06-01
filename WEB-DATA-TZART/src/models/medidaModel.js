@@ -2,7 +2,7 @@ var database = require("../database/config");
 
 function ranking() {
 
-    var instrucaoSql = `SELECT u.nome AS nome_usuario, qr.pontuacao_total AS pontuacao
+    var instrucaoSql = `SELECT u.nome AS nome_usuario, qr.qtd_acertos AS pontuacao
     FROM quiz_resultado qr
     JOIN (
       SELECT fk_user, MAX(data_hora) AS ultima_resposta

@@ -2,6 +2,7 @@ CREATE DATABASE tzart;
 
 USE tzart;
 
+
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
@@ -24,7 +25,6 @@ CREATE TABLE quiz_resultado (
     quest10 VARCHAR(60),
     qtd_acertos varchar(20),
     data_hora DATETIME,
-    tempo_gasto varchar(40),
     pontuacao_total varchar(40),
     foreign key (fk_user) references usuario (id)
 );
@@ -35,5 +35,5 @@ select * from usuario;
 
 
 insert into usuario(nome, email, senha)
-values ('Leonardo', 'leonardo@gmail.com', 'leonardo123?');
+values ('Leonardo', 'leonardo@gmail.com', 'leonardo123!');
  

@@ -1,6 +1,7 @@
 let proximaAtualizacao;
 window.onload = function () {
-    listar();
+    listar()
+    obterDadosGrafico();
 };
 setInterval(listar, 5000)
 

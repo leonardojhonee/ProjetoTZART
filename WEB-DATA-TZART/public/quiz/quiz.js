@@ -111,9 +111,9 @@ function enviarRespostas() {
                 section_quiz.style.display = "none";
 
                 resultadosQuiz.innerHTML = `
-                Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br>
-                Pontuação: <b>${sessionStorage.PONTUACAO_TOTAL}/30 </b><br>
-                Você também pode conferir sua classificação em nosso ranking clicando no botão abaixo:<br>
+                Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br><br>
+               
+                Confira o gabarito:<br>
                
                 `
             } else {

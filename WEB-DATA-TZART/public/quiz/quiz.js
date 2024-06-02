@@ -1,44 +1,10 @@
 
 
-
-
-let mensagemExibida = false;
-/*utilizei o metodo de argumento na funcao vinda do onclick*/
 function proximaPergunta(proxima) {
     const perguntas = document.querySelectorAll('.div-quiz');
     const perguntaAtual = perguntas[proxima - 1];
-    let todasRespondidas = true; // Variável para verificar se todas as perguntas anteriores foram respondidas
+    const respostaSelecionada = document.querySelector(`input[name="resposta${proxima - 1}"]:checked`).value;
 
-
-    for (var contador = 0; contador < proxima - 1; contador += 1) {
-        let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
-        if (!resposta) {
-            mostrarMensagem()
-            setTimeout(() => {
-                ocultarMensagem();
-
-            }, 3000);
-            todasRespondidas = false;
-            return false;
-        }
-    }
-
-
-    if (!todasRespondidas) {
-        mostrarMensagem()
-        setTimeout(() => {
-            ocultarMensagem();
-        }, 3000);
-        return false; // Interrompe a execução da função
-    }
-
-
-        // Obtém o valor da resposta selecionada
-        const respostaSelecionada = document.querySelector(`input[name="resposta${proxima -1}"]:checked`).value;
-
-       
-    
-    // Se todas as respostas estiverem checadas, mostrar a pergunta correta
     for (var contador = 0; contador < perguntas.length; contador += 1) {
 
         if (contador + 1 == proxima) {
@@ -51,9 +17,7 @@ function proximaPergunta(proxima) {
 
 
 function enviarRespostas() {
-    
- 
-    /*Obtem os valores selecionados, que serão enviados para o banco*/
+
     const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
     const resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
     const resposta3 = document.querySelector('input[name="resposta3"]:checked').value;
@@ -64,14 +28,13 @@ function enviarRespostas() {
     const resposta8 = document.querySelector('input[name="resposta8"]:checked').value;
     const resposta9 = document.querySelector('input[name="resposta9"]:checked').value;
     const resposta10 = document.querySelector('input[name="resposta10"]:checked').value;
-    // armazenando para exibir as respostas 
+   
     let respostasRespondidas = [resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10];
     sessionStorage.QUESTOES_RESPONDIDAS = respostasRespondidas
 
     console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
     calcularKPIs()
-  
-    
+
 
     console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO2);
 
@@ -93,17 +56,16 @@ function enviarRespostas() {
             resposta10Server: resposta10,
             acertosServer: sessionStorage.RESPOSTA_CORRETA,
             emailUsuarioServer: sessionStorage.EMAIL_USUARIO2,
-            pontuacaoTotalServer: sessionStorage.PONTUACAO_TOTAL
+
         }),
     })
         .then(function (resposta) {
             console.log("Resposta do servidor: ", resposta);
 
             if (resposta.ok) {
-                // alert("Respostas enviadas com sucesso!");
+
                 calcularKPIs()
-                // let redirecionarDash = "../dashboard/dashboard.html";
-                // window.location.href = redirecionarDash;
+
                 const section_saida = document.getElementById('section_saida')
                 const section_quiz = document.getElementById('section_quiz')
 
@@ -130,31 +92,24 @@ function enviarRespostas() {
 
 function calcularKPIs() {
 
-    let pontuacaoTotal = 0;
     let respostasCorretasPlayer = 0;
 
-    /*For que intera um valor para cada pergunta*/
     for (let contador = 0; contador <= 9; contador++) {
 
         let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
-        // Verificar se uma resposta foi selecionada e em seguida pega o valor
         if (resposta) {
             resposta = resposta.value;
 
             if (resposta == "1") {
-                pontuacaoTotal += 3;
+
                 respostasCorretasPlayer++;
             }
         }
     }
-    let desacertos = 10 - respostasCorretasPlayer;
-    let aproveitamento = (pontuacaoTotal / 100) * 100
-    sessionStorage.DESACERTOS = desacertos;
-    sessionStorage.APROVEITAMENTO = aproveitamento;
-    sessionStorage.RESPOSTA_CORRETA = respostasCorretasPlayer;
-    sessionStorage.PONTUACAO_TOTAL = pontuacaoTotal;
 
-    console.log('Pontuação Total:' + pontuacaoTotal);
+
+    sessionStorage.RESPOSTA_CORRETA = respostasCorretasPlayer;
+
     console.log('Total de Acertos:' + respostasCorretasPlayer);
 
 }

@@ -1,4 +1,4 @@
-let proximaAtualizacao;
+
 window.onload = function () {
     listar()
     obterDadosGrafico();
@@ -12,12 +12,12 @@ function listar() {
     })
         .then(function (resposta) {
             if (!resposta.ok) {
-                throw new Error('Erro ao recuperar o ranking');
+                throw new Error('Erro ao buscar ranking');
             }
             return resposta.json();
         })
         .then((ranking) => {
-            console.log('Dados do ranking recebidos com sucesso:', ranking);
+            console.log('sucesso:', ranking);
             preencherRanking(ranking);
         })
         .catch(function (erro) {
@@ -47,10 +47,8 @@ function preencherRanking(ranking) {
 
 
 function obterDadosGrafico() {
-    if (proximaAtualizacao != undefined) {
-        clearTimeout(proximaAtualizacao);
-    }
-    fetch(`/medidas/graficoPizza`, { cache: 'no-store' }).then(function (response) {
+   
+    fetch(`/medidas/graficoBarra`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -60,27 +58,25 @@ function obterDadosGrafico() {
 
             });
         } else {
-            console.error('Nenhum dado encontrado ou erro na API');
+            console.error('Falha ao buscar dados');
         }
     })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            console.error(`Erro ao buscar dados para o grafico: ${error.message}`);
         });
 }
 
 
 function plotarGrafico(resposta) {
 
-    console.log('iniciando plotagem do gráfico...');
+    console.log('Plotando grafico...');
 
-    // Criando estrutura para plotar gráfico - labels
     let labels = [];
 
-    // Criando estrutura para plotar gráfico - dados
     let dados = {
-        labels: ['1-2', '3-4', '5-6', '7-8', '9-10'],
+        labels: labels,
         datasets: [{
-            label: 'QTD_PESSOAS',
+            label: 'QTD-USUARIOS' ,
             data: [],
             fill: false,
             backgroundColor: [
@@ -98,29 +94,31 @@ function plotarGrafico(resposta) {
                 'rgba(153, 102, 255, 1)'
 
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            tension: 0.1
         }]
     };
 
     console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log('Dados recebidos "obterDadosGrafico" e utilizados "plotarGrafico":')
     console.log(resposta)
 
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
+ 
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
+        labels.push(registro.pontos);
         dados.datasets[0].data.push(registro.total_usuarios);
 
 
     }
 
     console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Plotagem de dados:')
     console.log('Dados:')
     console.log(dados.datasets)
     console.log('----------------------------------------------')
 
-    // Criando estrutura para plotar gráfico - config  labels.push(registro.total_usuarios);
+   
     const config = {
         type: 'bar',
         data: dados,
@@ -134,63 +132,11 @@ function plotarGrafico(resposta) {
         }
     };
 
-    // Adicionando gráfico criado em div na tela
+
     let myChart = new Chart(
         document.getElementById(`myChart`),
         config
     );
 
-    setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+   
 }
-function atualizarGrafico(dados, myChart) {
-
-fetch(`/medidas/tempo-real`, { cache: 'no-store' }).then(function (response) {
-if (response.ok) {
-    response.json().then(function (novoRegistro) {
-
-        
-        // alertar(novoRegistro, idAquario);
-        console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-        console.log(`Dados atuais do gráfico:`);
-        console.log(dados);
-
-        
-
-
-        if (novoRegistro[0].total_usuarios == dados.labels[dados.labels.length - 1]) {
-            console.log("---------------------------------------------------------------")
-            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-            
-            console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].total_usuarios)
-            console.log("Horário do último dado capturado:")
-            console.log(dados.labels[dados.labels.length - 1])
-            console.log("---------------------------------------------------------------")
-        } else {
-            // tirando e colocando valores no gráfico
-            dados.labels.shift(); // apagar o primeiro
-            dados.labels.push(novoRegistro[0].total_usuarios); // incluir um novo momento
-            
-            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-            dados.datasets[0].data.push(novoRegistro[0].total_usuarios); // incluir uma nova medida de umidade
-
-         
-
-            myChart.update();
-        }
-
-        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico( dados, myChart), 2000);
-    });
-} else {
-    console.error('Nenhum dado encontrado ou erro na API');
-    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-}
-})
-.catch(function (error) {
-    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-});
-
-}
-

@@ -11,10 +11,9 @@ router.get("/ranking", function (req, res) {
     medidaController.ranking(req, res);
 });
 
-router.get("/graficoPizza", function (req, res) {
-    medidaController.graficoPizza(req, res);
+router.get("/graficoBarra", function (req, res) {
+    medidaController.graficoBarra(req, res);
 });
-
 
 
 

@@ -12,8 +12,8 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
   <!--FONTS-->
-  
-  <link rel="icon" href="../assets/img/LOGO3.jpeg" >
+
+  <link rel="icon" href="../assets/img/LOGO3.jpeg">
   <link rel="stylesheet" href="LOGINCADASTRO.css">
   <title>CADASTRO TZARTS</title>
 
@@ -69,11 +69,24 @@
     const emailVar = email_input.value;
     const senhaVar = senha_input.value;
     const confirmacaoSenhaVar = confirmacao_senha_input.value;
-
     let validacaoEmail = emailVar.indexOf('@') !== -1 && emailVar.indexOf('.com')
     let senhalength = senhaVar.length >= 8;
-    let senhaMaiusculo = /[A-Z]/.test(senhaVar);
-    let senhaNum = /[0-9]/.test(senhaVar);
+    let senhaNum = false
+
+
+    // Laço de Repetição para verificação de números na senha.
+    for (
+      let contadorNumero = 0;
+      contadorNumero < senhaVar.length;
+      contadorNumero++
+    ) {
+      for (let contadorIndex = 0; contadorIndex < 9; contadorIndex++) {
+        if (senhaVar.indexOf(contadorIndex) != -1) {
+          senhaNum = true;
+        }
+      }
+    }
+
 
     if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
@@ -85,7 +98,7 @@
       mensagem_erro.innerHTML = "Email inválido !";
       return false;
 
-    } else if (!senhalength || !senhaMaiusculo || !senhaNum) {
+    } else if (!senhalength || !senhaNum) {
 
       mensagem_erro.innerHTML = "Senha Inválida !";
       return false;
@@ -97,15 +110,13 @@
 
     }
 
-    // Enviando o valor da nova input
+
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar

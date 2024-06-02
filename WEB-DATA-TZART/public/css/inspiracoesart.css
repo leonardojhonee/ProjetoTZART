@@ -33,9 +33,9 @@ span {
     color: rgb(141, 0, 0);
 }
 
-.logo img{
+.logo img {
 
-    width: 170px; 
+    width: 170px;
     padding-left: 40px;
 }
 
@@ -52,7 +52,7 @@ span {
     color: white;
     padding: 20px;
     box-sizing: border-box;
-   
+
 }
 
 .sidebar h2 {
@@ -107,7 +107,7 @@ span {
 .section-carrossel {
     padding: 70px;
     padding-left: 130px;
-   
+
 
 }
 
@@ -165,14 +165,14 @@ span {
     font-size: medium;
     font-weight: bold;
     border-radius: 5px;
-    
-    
+
+
 }
 
 .btn-iniciar-quiz button :hover {
     background-color: #d40606;
-    
-    
+
+
 }
 
 .btn-iniciar-quiz {
@@ -182,107 +182,114 @@ span {
 /* FIM TELA INICIO QUIZ */
 
 
-/* DASHBOARD */
 
 /* RANKING QUIZ */
 
+
 .ranking-quiz {
-padding: 50px;
-padding-left: 30px;
+
+    padding: 50px;
+    padding-left: 30px;
 
 
 }
 
-
-.tabela {
-    
+.tabela-ranking {
     width: 1250px;
     border-collapse: collapse;
-    
-   
-   
-    color: #fff; /
-  }
-  
-  
-  .cabecalho {
-    background-color: #2f0202; 
+    color: #fff;/
+}
+
+
+.barra-ranking {
+    background-color: #2f0202;
     display: flex;
     font-weight: bold;
-    
-  }
-  
-  .cabecalho-item {
+
+}
+
+.barra-item {
     flex: 1;
     padding: 10px;
-    border-right: 1px solid #000000; 
+    border-right: 1px solid #000000;
     text-align: center;
-  }
-  
-  .corpo {
+}
+
+.tabelas-linhas {
     padding: 10px;
-  }
-  
-  .linha {
+}
+
+.linha {
     display: flex;
     border-bottom: 1px solid #000000;
-  }
-  
-  
-  .item {
+}
+
+
+.item {
     margin: 0;
     flex: 1;
     padding: 10px;
     border-right: 1px solid #41030386;
     text-align: center;
-  }
-  
-  .item:last-child {
-    border-right: none;
-  }
-  
+}
+
+
+
 
 /* FIM RANKING QUIZ */
 
 /* GRAFICO CHARTJS */
 
-.graficos-quiz{
+.graficos-quiz {
 
-padding-top: 50px;
+    padding-top: 50px;
 
 }
 
 .grafico-barras {
 
-align-items: center;
-justify-content: center;
-width: 500px;
-height: 400px;
-background-color: #1e1d1d;
-margin: 0;
-padding-left: 20px;
-padding-right: 20px;
-border-radius: 15px;
-padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 400px;
+    background-color: #151515;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    padding-top: 20px;
 }
 
-.container-grafico{
+.grafico-pizza {
+    width: 400px;
+    height: 400px;
+    background-color: #151515;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 30px;
+    border-radius: 15px;
+    padding-top: 20px;
+}
+
+.container-grafico {
     padding-top: 60px;
-
-    color:  rgba(234, 99, 255, 0.2);
-   color: rgba(130, 54, 235, 0.2);
-   color: rgba(255, 86, 86, 0.2) ;
-   color:  rgba(85, 75, 192, 0.2);
-   color:   rgba(102, 224, 255, 0.2);
-
-
-    
-   
-   
-  
-  
-
+    padding-right: 90px;
 }
+
+.container-grafico-pizza {
+    padding-top: 60px;
+}
+
+.mega-container-graficos {
+    display: flex;
+    padding-left: 70px;
+}
+
+.limbo{
+    padding-top: 60px;
+}
+
+
 
 
 

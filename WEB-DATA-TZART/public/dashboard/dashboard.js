@@ -27,7 +27,7 @@ function listar() {
 
 
 function preencherRanking(ranking) {
-   
+
     ranking.sort((a, b) => b.pontuacao - a.pontuacao);
 
     const corpoTabela = document.getElementById('corpoTabela');
@@ -47,7 +47,7 @@ function preencherRanking(ranking) {
 
 
 function obterDadosGrafico() {
-   
+
     fetch(`/medidas/graficoBarra`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
@@ -73,20 +73,23 @@ function plotarGrafico(resposta) {
 
     let labels = [];
 
+
+    /*GRAFICO DE BARRAS*/
+
     let dados = {
         labels: labels,
         datasets: [{
-            label: 'QTD-USUARIOS' ,
+            label: 'QTD-USUARIOS',
             data: [],
             fill: false,
             backgroundColor: [
                 'rgba(234, 99, 255, 0.2)',
-                    'rgba(130, 54, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(255, 86, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                'rgba(130, 54, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 86, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
             ],
-            borderColor:[
+            borderColor: [
                 'pink',
                 'magenta',
                 'rgba(255, 206, 86, 1)',
@@ -99,18 +102,51 @@ function plotarGrafico(resposta) {
         }]
     };
 
+    /* FIM GRAFICO DE BARRAS*/
+
+    /*GRAFICO PIZZA*/
+
+    let dados2 = {
+        labels: labels,
+        datasets: [{
+            label: 'QTD-USUARIOS',
+            data: [],
+            fill: false,
+            backgroundColor: [
+                'rgba(234, 99, 255, 0.2)',
+                'rgba(130, 54, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 86, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'pink',
+                'magenta',
+                'rgba(255, 206, 86, 1)',
+                'red',
+                'rgba(153, 102, 255, 1)'
+
+            ],
+            borderWidth: 1,
+
+        }]
+    };
+
+    /*FIM GRAFICO PIZZA*/
+
     console.log('----------------------------------------------')
     console.log('Dados recebidos "obterDadosGrafico" e utilizados "plotarGrafico":')
     console.log(resposta)
 
- 
+
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         labels.push(registro.pontos);
         dados.datasets[0].data.push(registro.total_usuarios);
-
+        dados2.datasets[0].data.push(registro.total_usuarios);
 
     }
+
 
     console.log('----------------------------------------------')
     console.log('Plotagem de dados:')
@@ -118,7 +154,7 @@ function plotarGrafico(resposta) {
     console.log(dados.datasets)
     console.log('----------------------------------------------')
 
-   
+    /*CONFIG GRAFICO DE BARRAS*/
     const config = {
         type: 'bar',
         data: dados,
@@ -126,17 +162,40 @@ function plotarGrafico(resposta) {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    
+                    beginAtZero: true,
+                    
                 }
             }
         }
     };
 
+    /*CONFIG GRAFICO DE PIZZA*/
+    const config2 = {
+        type: 'pie',
+        data: dados2,
+        responsive: false,
+        options: {
+            scales: {
 
+            }
+        }
+    };
+
+
+    /*CONFIG GRAFICO DE BARRAS*/
     let myChart = new Chart(
         document.getElementById(`myChart`),
         config
     );
+    
+    /*CONFIG GRAFICO DE PIZZA*/
+    let myChart2 = new Chart(
+        document.getElementById(`myChart2`),
+        config2
+    );
 
-   
+
 }
+
+

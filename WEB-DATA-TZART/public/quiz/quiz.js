@@ -107,7 +107,6 @@ function calcularKPIs() {
         }
     }
 
-
     sessionStorage.RESPOSTA_CORRETA = respostasCorretasPlayer;
 
     console.log('Total de Acertos:' + respostasCorretasPlayer);

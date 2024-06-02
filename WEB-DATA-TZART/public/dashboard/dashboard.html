@@ -44,33 +44,44 @@
 
 
     <section class="ranking-quiz">
-        <h2 class="titulo"> RANKING <span>QUIZ.</span></h2>
-        <div class="containerChartJs">
 
-            <h2>Quiz Ranking</h2>
-            <div id="tabelaRanking" class="tabela">
-                <div class="cabecalho">
-                    <div class="cabecalho-item">POSIÇÃO</div>
-                    <div class="cabecalho-item">NOME</div>
-                    <div class="cabecalho-item">ACERTOS</div>
+        <h2 class="titulo"> RANKING <span>QUIZ.</span></h2>
+        
+            <div id="tabelaRanking" class="tabela-ranking">
+                <div class="barra-ranking">
+                    <div class="barra-item">POSIÇÃO</div>
+                    <div class="barra-item">NOME</div>
+                    <div class="barra-item">ACERTOS</div>
                 </div>
 
-                <div id="corpoTabela" class="corpo"></div>
+                <div id="corpoTabela" class="tabela-linhas"></div>
 
             </div>
 
-        </div>
-
-
+    
         <div class="graficos-quiz">
 
             <h2 class="titulo"> GRAFICOS <span>QUIZ.</span></h2>
 
-            <div class="container-grafico">
+            <div class="mega-container-graficos">
 
-                <div class="grafico-barras">
+                <div class="container-grafico">
 
-                    <canvas id="myChart" width="200" height="150"></canvas>
+                    <div class="grafico-barras">
+
+                        <canvas id="myChart" width="200" height="150"></canvas>
+
+                    </div>
+
+                </div>
+
+                <div class="container-grafico-pizza">
+
+                    <div class="grafico-pizza">
+
+                        <canvas id="myChart2" width="90" height="30"></canvas>
+
+                    </div>
 
                 </div>
 
@@ -78,6 +89,9 @@
 
         </div>
 
+        <div class="limbo">
+
+        </div>
 
 
 

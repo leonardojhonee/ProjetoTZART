@@ -16,8 +16,7 @@ function cadastrarRespostas(req, res) {
     var email = req.body.emailUsuarioServer;
     var acertos = req.body.acertosServer;
     
-    // Faça as validações dos valores
-    
+
     quizModel.cadastrarRespostas(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10, email, acertos).then(
         function (resultado) {
             res.json(resultado);

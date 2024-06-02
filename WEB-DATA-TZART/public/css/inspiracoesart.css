@@ -48,7 +48,7 @@ span {
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #000000;
+    background-color: #1f0101;
     color: white;
     padding: 20px;
     box-sizing: border-box;
@@ -107,8 +107,6 @@ span {
 .section-carrossel {
     padding: 70px;
     padding-left: 130px;
-
-
 }
 
 .section-carrossel flex {
@@ -116,27 +114,22 @@ span {
 }
 
 
-
 .carrossel {
     display: flex;
     filter: drop-shadow(0px 0px 10px #000);
     overflow: hidden;
     width: 1100px;
-
 }
 
 .container {
     display: flex;
     transition: 2s ease-in-out;
     transform: translateX(0);
-
 }
 
 .container img {
     position: relative;
     width: 1100px;
-
-
 }
 
 /* FIM CARROSEL TELA INSPIRAÇÕES ARTISTICAS */
@@ -165,14 +158,10 @@ span {
     font-size: medium;
     font-weight: bold;
     border-radius: 5px;
-
-
 }
 
 .btn-iniciar-quiz button :hover {
     background-color: #d40606;
-
-
 }
 
 .btn-iniciar-quiz {
@@ -182,21 +171,83 @@ span {
 /* FIM TELA INICIO QUIZ */
 
 
+/* SIDEBAR DASHBOARD */
 
-/* RANKING QUIZ */
-
-
-.ranking-quiz {
-
-    padding: 50px;
-    padding-left: 30px;
-
+.sidebar2 {
+    width: 250px;
+    height: 140vh;
+    background-color: #1f0101;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
 
 }
 
+.sidebar2 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar2 ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.sidebar2 ul li {
+    margin: 10px 0;
+}
+
+.sidebar2 ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 40px;
+    transition: background 0.3s;
+    border-radius: 15px;
+}
+
+.sidebar2 ul li a:hover {
+    background-color: #520303;
+    border-radius: 15px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-content h1 {
+    margin-top: 0;
+    color: white;
+}
+
+.main-content p {
+    margin-top: 0;
+    color: white;
+}
+
+
+/* FIM SIDEBAR */
+
+
+
+/* RANKING QUIZ */
+
+.section-dashboard{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    padding-left: 110px;
+}
+
+
+
 .tabela-ranking {
-    width: 1250px;
+    width: 1100px;
     border-collapse: collapse;
+   
     color: #fff;/
 }
 
@@ -205,6 +256,7 @@ span {
     background-color: #2f0202;
     display: flex;
     font-weight: bold;
+    border-radius: 10px;
 
 }
 
@@ -229,11 +281,9 @@ span {
     margin: 0;
     flex: 1;
     padding: 10px;
-    border-right: 1px solid #41030386;
+    border-right: 1px solid #00000086;
     text-align: center;
 }
-
-
 
 
 /* FIM RANKING QUIZ */
@@ -243,6 +293,7 @@ span {
 .graficos-quiz {
 
     padding-top: 50px;
+    padding-right: 5px;
 
 }
 
@@ -282,19 +333,12 @@ span {
 
 .mega-container-graficos {
     display: flex;
-    padding-left: 70px;
+    padding-left: 30px;
 }
 
 .limbo{
     padding-top: 60px;
 }
-
-
-
-
-
-
-
 
 
 /* FIM GRAFICO CHARTJS */

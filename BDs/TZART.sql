@@ -1,39 +1,38 @@
-CREATE DATABASE tzart;
+create database tzart;
 
-USE tzart;
+use tzart;
 
+create table user_art (
+    id int primary key auto_increment,
+    nome varchar(50),
+    email varchar(50),
+    senha varchar(50)
+);
 
-CREATE TABLE usuario (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    email VARCHAR(100),
-    senha VARCHAR(50)
-); 
-
-CREATE TABLE quiz_resultado (
-    idTentativa INT PRIMARY KEY AUTO_INCREMENT,
+create table quiz_art (
+    idtentativa int primary key auto_increment,
     fk_user int,
-    quest1 VARCHAR(50),
-    quest2 VARCHAR(50),
-    quest3 VARCHAR(50),
-    quest4 VARCHAR(50),
-    quest5 VARCHAR(50),
-    quest6 VARCHAR(50),
-    quest7 VARCHAR(50),
-    quest8 VARCHAR(50),
-    quest9 VARCHAR(50),
-    quest10 VARCHAR(60),
-    qtd_acertos varchar(20),
-    data_hora DATETIME,
-    pontuacao_total varchar(40),
-    foreign key (fk_user) references usuario (id)
+    resposta1 int,
+    resposta2 int,
+    resposta3 int,
+    resposta4 int,
+    resposta5 int,
+    resposta6 int,
+    resposta7 int,
+    resposta8 int,
+    resposta9 int,
+    resposta10 int,
+    qtd_acertos int,
+    data_hora datetime,
+    foreign key (fk_user) references user_art (id)
 );
 
 
-select * from quiz_resultado;
-select * from usuario;
+
+select * from quiz_art;
+select * from user_art;
 
 
-insert into usuario(nome, email, senha)
+insert into user_art(nome, email, senha)
 values ('Leonardo', 'leonardo@gmail.com', 'leonardo123!');
- 
+

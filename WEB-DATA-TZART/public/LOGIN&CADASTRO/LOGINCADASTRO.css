@@ -67,8 +67,12 @@ a {
     border-radius: 20px;
     border: none;
     background-color: rgb(141, 0, 0);
-    color: #141414;
+    color: white;
+    font-weight: bold;
+    
 }
+
+
 
 input::placeholder {
     color: #b6b6b6;

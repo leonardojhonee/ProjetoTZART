@@ -139,8 +139,8 @@ function plotarGrafico(resposta) {
     console.log(resposta)
 
 
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
+    for (contador = 0; contador < resposta.length; contador++) {
+        var registro = resposta[contador];
         labels.push(registro.pontos);
         dados.datasets[0].data.push(registro.total_usuarios);
         dados2.datasets[0].data.push(registro.total_usuarios);

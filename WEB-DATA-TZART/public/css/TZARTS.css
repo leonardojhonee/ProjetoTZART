@@ -25,12 +25,14 @@ body {
 .btn-login-cadastro button {
     padding: 10px 40px;
     font-size: 18px;
-    font-weight: 600;
+    
     background-color:rgb(141, 0, 0);
     border: 0;
     border-radius: 30px;
     cursor: pointer;
     transition: .2s;
+    color: white;
+    font-weight: bold;
 }
 
 h2.titulo {
@@ -83,6 +85,7 @@ header nav ul {
 header nav.menu ul li {
     display: inline-block;
     padding: 0 70px;
+    font-weight: bold;
 }
 
 /* FIM STYLE NAVBAR */
@@ -114,6 +117,7 @@ section.paginaInicial .flex {
 .paginaInicial .txt-paginaInicial p {
     color: #fff;
     margin: 40px 0;
+   
 }
 
 .paginaInicial .img-paginaInicial img {

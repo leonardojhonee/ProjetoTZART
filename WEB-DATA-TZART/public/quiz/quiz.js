@@ -75,7 +75,7 @@ function enviarRespostas() {
                 resultadosQuiz.innerHTML = `
                 Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br><br>
                
-                Confira o gabarito:<br>
+                Confira a Dashboard:<br>
                
                 `
             } else {
